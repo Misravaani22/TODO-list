@@ -1,0 +1,309 @@
+body {
+  background: #1e1e2f;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #2e2e3e;
+  color: #ccc;
+  padding: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.input-section {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background: #3e3e4e;
+  color: #fff;
+}
+
+#taskInput::placeholder {
+  color: #999;
+}
+
+#calendarBtn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#calendarBtn:hover {
+  background: #4338ca;
+}
+
+#addTaskBtn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#addTaskBtn:hover {
+  background: #ff3333;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #2e2e3e;
+  margin: 15% auto;
+  padding: 0;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 300px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #444;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #fff;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-body label {
+  display: block;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+#dueDateInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background: #3e3e4e;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.modal-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#confirmDateBtn {
+  background: #10b981;
+  color: white;
+}
+
+#confirmDateBtn:hover {
+  background: #059669;
+}
+
+#cancelDateBtn {
+  background: #6b7280;
+  color: white;
+}
+
+#cancelDateBtn:hover {
+  background: #4b5563;
+}
+
+ul#taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  background: #1f1f2e;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  justify-content: space-between;
+  transition: background 0.3s ease;
+}
+
+.task:hover {
+  background: #252535;
+}
+
+.task.completed {
+  opacity: 0.6;
+}
+
+.task.completed .text {
+  text-decoration: line-through;
+}
+
+.task .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.task input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.task .text {
+  color: #ccc;
+  flex: 1;
+}
+
+.task .time {
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.task .time.soon {
+  color: #ff9500;
+  background: rgba(255, 149, 0, 0.1);
+}
+
+.task .time.later {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.1);
+}
+
+.task .time.overdue {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.task .actions {
+  display: flex;
+  gap: 5px;
+}
+
+.task .actions button {
+  background: linear-gradient(45deg, #f87171, #f43f5e);
+  border: none;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.task .actions button:hover {
+  transform: scale(1.1);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #444;
+}
+
+#pendingTasks {
+  color: #999;
+  font-size: 0.9em;
+}
+
+#clearAllBtn {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#clearAllBtn:hover {
+  background-color: #b91c1c;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+  
+  .footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .modal-content {
+    width: 95%;
+    margin: 20% auto;
+  }
+}
