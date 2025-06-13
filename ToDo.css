@@ -76,7 +76,6 @@ h2 {
   background: #ff3333;
 }
 
-/* Modal styles */
 .modal {
   display: none;
   position: fixed;
@@ -290,7 +289,6 @@ ul#taskList {
   background-color: #b91c1c;
 }
 
-/* Responsive design */
 @media (max-width: 480px) {
   .container {
     padding: 20px;
