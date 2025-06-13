@@ -113,7 +113,6 @@ function createTaskElement(task, index) {
 function renderTasks() {
   taskList.innerHTML = '';
   
-  // Sort tasks by due date
   const sortedTasks = [...tasks].sort((a, b) => {
     const daysA = calculateDaysLeft(a.dueDate);
     const daysB = calculateDaysLeft(b.dueDate);
@@ -145,7 +144,6 @@ function addTask() {
 }
 
 function openDateModal() {
-  // Set minimum date to today
   const today = new Date().toISOString().split('T')[0];
   dueDateInput.min = today;
   dueDateInput.value = today;
@@ -168,17 +166,11 @@ function confirmDate() {
   }
 }
 
-// Event listeners
 addTaskBtn.addEventListener('click', addTask);
-
 calendarBtn.addEventListener('click', openDateModal);
-
 confirmDateBtn.addEventListener('click', confirmDate);
-
 cancelDateBtn.addEventListener('click', closeDateModal);
-
 closeModal.addEventListener('click', closeDateModal);
-
 taskInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     addTask();
@@ -193,12 +185,10 @@ clearAllBtn.addEventListener('click', () => {
   }
 });
 
-// Close modal when clicking outside
 window.addEventListener('click', (e) => {
   if (e.target === dateModal) {
     closeDateModal();
   }
 });
 
-// Initialize the app
 renderTasks();
